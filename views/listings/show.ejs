@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Style.css">
+</head>
+<body>
+    <%- include("../includes/Navbar") %>
+    <h4>Single Recipe Page</h4>
+    <% const imageSrc = typeof SingleRecipeFromListings.image === 'string' ? SingleRecipeFromListings.image : (SingleRecipeFromListings.image && SingleRecipeFromListings.image.url ? SingleRecipeFromListings.image.url : ''); %>
+    <p>Title : <%=SingleRecipeFromListings.title%></p>
+    <p>category : <%=SingleRecipeFromListings.category%></p>
+    <p>ingredients : <%=SingleRecipeFromListings.ingredients%></p>
+    <img class="SelectedSingleRecipeImage" src="<%=imageSrc%>" alt="SelectedSingleRecipeImage">
+    <p>difficulty : <%=SingleRecipeFromListings.difficulty%></p>
+    <p>Description : <%=SingleRecipeFromListings.Description%></p>
+    <p>instructions : <%=SingleRecipeFromListings.instructions%></p>
+</body>
+</html>
