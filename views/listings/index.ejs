@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Recipe || Home Page</title>
+    <link rel="stylesheet" href="/Style.css">
+</head>
+<body>
+    <%- include("../includes/Navbar") %>
+    <p class="PageTitle">All Recipe</p>
+    <hr>
+    <% for(let SingleRecipe of AllRecipeListings) { %>
+        <a class="ShowOneRecipeAnchorTag" href="/RecipeListings/<%=SingleRecipe._id%>">
+            <div class="RecipeCardDivParentDiv">
+            <div class="RecipeCardDiv">
+                <% const imageSrc = typeof SingleRecipe.image === 'string' ? SingleRecipe.image : (SingleRecipe.image && SingleRecipe.image.url ? SingleRecipe.image.url : ''); %>
+                <p>title : <%= SingleRecipe.title %></p>
+                <p>category : <%= SingleRecipe.category%></p>
+                <p>ingredients : <%= SingleRecipe.ingredients%></p>
+                <p>difficulty : <%= SingleRecipe.difficulty%></p>
+                <img src="<%= imageSrc %>" alt="RecipeImage" style="height: 200px; width: 200px; object-fit: cover;">
+                <p>Description : <%= SingleRecipe.Description%></p>
+                <p>instruction : <%= SingleRecipe.instructions%></p>
+            </div>
+        </div>
+        </a>
+    <%}%>
+    <%- include("../includes/Footer") %>
+</body>
+</html>
